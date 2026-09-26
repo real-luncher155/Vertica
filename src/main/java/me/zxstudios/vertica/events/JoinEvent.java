@@ -48,7 +48,7 @@ public class JoinEvent implements Listener {
                 }
 
                 else if (current.equals(latest)) {
-                    player.sendMessage(formatted(("<#FF75ED><bold>VERTICA</bold> <gray>»</gray> " + "<white>You currently have the newest version of </white><#FF75ED>Vertica</#FF75ED><white>!</white> " + "<gray>('1.0.0')</gray>")));
+                    player.sendMessage(formatted(("<#FF75ED><bold>VERTICA</bold> <gray>»</gray> " + "<white>You currently have the newest version of </white><#FF75ED>Vertica</#FF75ED><white>!</white> " + "<gray>('" + current + "')</gray>")));
                 }
 
                 else {

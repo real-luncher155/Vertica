@@ -6,7 +6,7 @@
 
     <groupId>me.zxstudios</groupId>
     <artifactId>Vertica</artifactId>
-    <version>V1.4-RELEASE</version>
+    <version>V1.5-RELEASE</version>
     <packaging>jar</packaging>
 
     <name>Vertica</name>
