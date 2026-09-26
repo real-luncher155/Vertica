@@ -106,7 +106,7 @@ mute:
   mute-success: "&7[&a✔&7]&r Successfully muted %target%!" # Target
   mute-success-sound: "minecraft:entity.experience_orb.pickup"
 
-  mute-success-target: "&7[&e⚠︎︎︎︎︎︎︎︎︎︎&7] &rYou have been muted by %player%" # Player
+  mute-success-target: "&7[&e⚠&7] &rYou have been muted by %player%" # Player
   mute-success-target-sound: "minecraft:block.amethyst_block.resonate"
 
   # Unmute
@@ -119,7 +119,7 @@ mute:
   unmute-success: "&7[&a✔&7]&r Successfully unmuted %target%!" # Target
   unmute-success-sound: "minecraft:entity.experience_orb.pickup"
 
-  unmute-success-target: "&7[&e⚠︎︎︎︎︎︎︎︎︎︎&7] &rYou have been unmuted by %player%" # Player
+  unmute-success-target: "&7[&e⚠&7] &rYou have been unmuted by %player%" # Player
   unmute-success-target-sound: "minecraft:block.amethyst_block.resonate"
 
 # ----------------------------
@@ -133,7 +133,7 @@ freeze:
 
   freeze-permission: "vertica.freeze"
 
-  frozen: "&7[&c✘&7]&r You are frozen and cannot send messages."
+  frozen: "&7[&c✘&7]&r You are frozen and cannot move. Please wait for staff instructions."
   frozen-sound: "minecraft:entity.villager.no"
 
   player-already-frozen: "&7[&c✘&7]&r This player is already frozen."
@@ -142,7 +142,7 @@ freeze:
   success: "&7[&a✔&7]&r Successfully froze %target%!" # Target
   success-sound: "minecraft:entity.experience_orb.pickup"
 
-  success-target: "&7[&e⚠︎︎︎︎︎︎︎︎︎︎&7] &rYou have been frozen by %player%" # Player
+  success-target: "&7[&e⚠&7] &rYou have been frozen by %player%" # Player
   success-target-sound: "minecraft:block.amethyst_block.resonate"
 
   # Unfreeze
@@ -155,7 +155,7 @@ freeze:
   unfreeze-success: "&7[&a✔&7]&r Successfully unfrozen %target%!" # Target
   unfreeze-success-sound: "minecraft:entity.experience_orb.pickup"
 
-  unfreeze-success-target: "&7[&e⚠︎︎︎︎︎︎︎︎︎︎&7] &rYou have been unfrozen by %player%" # Player
+  unfreeze-success-target: "&7[&e⚠︎&7] &rYou have been unfrozen by %player%" # Player
   unfreeze-success-target-sound: "minecraft:block.amethyst_block.resonate"
 
 # ----------------------------
