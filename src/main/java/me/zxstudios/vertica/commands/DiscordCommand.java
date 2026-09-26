@@ -41,7 +41,7 @@ public class DiscordCommand implements CommandExecutor {
 
         }
 
-        soundLib.play(player, config.get("discord.sound"));
+        soundLib.play(player, "discord.sound");
 
 
 

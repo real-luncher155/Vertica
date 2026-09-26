@@ -29,7 +29,7 @@ public class LeaveEvent implements Listener {
         if (config.getBoolean("traction.custom-join-leave-msg") == true) {
 
             event.setQuitMessage(config.get("traction.leave", player));
-            soundLib.play(player, config.get("traction.leave-sound"));
+            soundLib.play(player, "traction.leave-sound");
         }
     }
 }

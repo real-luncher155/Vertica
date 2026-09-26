@@ -64,7 +64,7 @@ public class JoinEvent implements Listener {
         if (config.getBoolean("traction.custom-join-leave-msg") == true) {
 
             event.setJoinMessage(config.get("traction.join", player));
-            soundLib.play(player, config.get("traction.join-sound"));
+            soundLib.play(player, "traction.join-sound");
 
         }
 

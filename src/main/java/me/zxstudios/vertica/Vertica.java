@@ -94,13 +94,29 @@ public final class Vertica extends JavaPlugin {
     @Override
     public void onEnable() {
 
+        getLogger().info("Initializing Vertica...");
+        // -------------------------------------------------------
+
+        getLogger().info("Initializing YML Files...");
+
         // YML init
 
         mutesFile = new YMLHelper(this, "mutes.yml");
         freezeFile = new YMLHelper(this, "freeze.yml");
         spawnFile = new YMLHelper(this, "spawn.yml");
 
+        getLogger().info("YML Files Initialized.");
+
         // -------------------------------------------------------
+
+        getLogger().info("Loading the configuration (config.yml)...");
+
+        saveDefaultConfig();
+
+        getLogger().info("Configuration loaded successfully.");
+
+        // -------------------------------------------------------
+
         getLogger().info("Initializing libs...");
 
         config = new ConfigHelper(this);
@@ -124,21 +140,16 @@ public final class Vertica extends JavaPlugin {
         }
 
         // -------------------------------------------------------
-        getLogger().info("Initializing Vertica...");
-        // -------------------------------------------------------
-        getLogger().info("Loading the configuration (config.yml)...");
 
-        saveDefaultConfig();
-
-        getLogger().info("Configuration loaded successfully.");
-        // -------------------------------------------------------
         getLogger().info("Loading commands...");
 
         if (config.getBoolean("heal.enable") == true) {
 
             getCommand("heal").setExecutor(new HealCommand(this));
 
-        } else {
+        }
+
+        else {
 
             getLogger().warning("[config.yml] Heal command has been disabled manually.");
 
@@ -148,7 +159,9 @@ public final class Vertica extends JavaPlugin {
 
             getCommand("feed").setExecutor(new FeedCommand(this));
 
-        } else {
+        }
+
+        else {
 
             getLogger().warning("[config.yml] Feed command has been disabled manually.");
 
@@ -158,7 +171,9 @@ public final class Vertica extends JavaPlugin {
 
             getCommand("fly").setExecutor(new FlyCommand(this));
 
-        } else {
+        }
+
+        else {
 
             getLogger().warning("[config.yml] Fly command has been disabled manually.");
 
@@ -169,7 +184,9 @@ public final class Vertica extends JavaPlugin {
             getCommand("mute").setExecutor(new MuteCommand(this));
             getCommand("unmute").setExecutor(new UnmuteCommand(this));
 
-        } else {
+        }
+
+        else {
 
             getLogger().warning("[config.yml] Mute and Unmute commands have been disabled manually.");
 
@@ -180,7 +197,9 @@ public final class Vertica extends JavaPlugin {
             getCommand("freeze").setExecutor(new FreezeCommand(this));
             getCommand("unfreeze").setExecutor(new UnfreezeCommand(this));
 
-        } else {
+        }
+
+        else {
 
             getLogger().warning("[config.yml] Freeze and Unfreeze commands have been disabled manually.");
 
@@ -191,7 +210,9 @@ public final class Vertica extends JavaPlugin {
             getCommand("spawn").setExecutor(new SpawnCommand(this));
             getCommand("setspawn").setExecutor(new SetSpawnCommand(this));
 
-        } else {
+        }
+
+        else {
 
             getLogger().warning("[config.yml] Spawn and Setspawn commands have been disabled manually.");
 
@@ -201,7 +222,9 @@ public final class Vertica extends JavaPlugin {
 
             getCommand("ping").setExecutor(new PingCommand(this));
 
-        } else {
+        }
+
+        else {
 
             getLogger().warning("[config.yml] Ping command has been disabled manually.");
 
@@ -211,7 +234,9 @@ public final class Vertica extends JavaPlugin {
 
             getCommand("tps").setExecutor(new TpsCommand(this));
 
-        } else {
+        }
+
+        else {
 
             getLogger().warning("[config.yml] TPS command has been disabled manually.");
 
@@ -221,7 +246,9 @@ public final class Vertica extends JavaPlugin {
 
             getCommand("rules").setExecutor(new RulesCommand(this));
 
-        } else {
+        }
+
+        else {
 
             getLogger().warning("[config.yml] Rules command has been disabled manually.");
 
@@ -231,7 +258,9 @@ public final class Vertica extends JavaPlugin {
 
             getCommand("discord").setExecutor(new DiscordCommand(this));
 
-        } else {
+        }
+
+        else {
 
             getLogger().warning("[config.yml] Discord command has been disabled manually.");
 
@@ -249,6 +278,7 @@ public final class Vertica extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ChatEvent(this), this);
         getServer().getPluginManager().registerEvents(new LeaveEvent(this), this);
         getServer().getPluginManager().registerEvents(new ServerListReloadEvent(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerMoveEventListener(this), this);
 
         getLogger().info("Events loaded.");
         // -------------------------------------------------------

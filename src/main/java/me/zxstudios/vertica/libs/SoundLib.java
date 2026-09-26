@@ -20,7 +20,9 @@ public class SoundLib {
 
         String soundId = config.get(path);
 
-        if (soundId == null) return;
+        if (soundId == null) {
+            return;
+        }
 
         Sound sound = Sound.sound(
                 Key.key(soundId),

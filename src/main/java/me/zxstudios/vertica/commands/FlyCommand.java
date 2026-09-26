@@ -80,7 +80,7 @@ public class FlyCommand implements CommandExecutor {
         if (target.getAllowFlight() == false) {
 
             target.setAllowFlight(true);
-            target.sendActionBar(config.get("fly.enabled-target", player));
+            player.sendActionBar(config.get("fly.enabled-target", target));
             target.sendActionBar(config.get("fly.enabled-target-player", target));
             soundLib.play(player, "fly.enabled-target-sound");
             soundLib.play(target, "fly.enabled-target-sound");
@@ -90,7 +90,7 @@ public class FlyCommand implements CommandExecutor {
         else {
 
             target.setAllowFlight(false);
-            target.sendActionBar(config.get("fly.disabled-target", player));
+            player.sendActionBar(config.get("fly.disabled-target", target));
             target.sendActionBar(config.get("fly.disabled-target-player", target));
             soundLib.play(player, "fly.disabled-target-sound");
             soundLib.play(target, "fly.disabled-target-sound");
