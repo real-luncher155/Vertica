@@ -37,7 +37,7 @@ public class DiscordCommand implements CommandExecutor {
 
         for (String lines: DiscordCommandLines) {
 
-            player.sendActionBar(lines);
+            player.sendMessage(lines);
 
         }
 

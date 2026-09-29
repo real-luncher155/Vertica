@@ -4,7 +4,7 @@
   <groupId>me.zxstudios</groupId>
   <artifactId>Vertica</artifactId>
   <name>Vertica</name>
-  <version>V1.4-RELEASE</version>
+  <version>V1.5-RELEASE</version>
   <build>
     <defaultGoal>clean package</defaultGoal>
     <resources>

@@ -33,15 +33,15 @@ public class FlyCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if (!(player.hasPermission(config.get("fly.permission")))) {
-
-            player.sendActionBar(config.get("general.no-permission-message"));
-            soundLib.play(player, "general.no-permission-sound");
-            return true;
-
-        }
-
         if (args.length == 0) {
+
+            if (!(player.hasPermission(config.get("fly.player-permission")))) {
+
+                player.sendActionBar(config.get("general.no-permission-message"));
+                soundLib.play(player, "general.no-permission-sound");
+                return true;
+
+            }
 
             if (player.getAllowFlight() == false) {
 
@@ -68,6 +68,14 @@ public class FlyCommand implements CommandExecutor {
         }
 
         Player target = Bukkit.getPlayer(args[0]);
+
+        if (!(player.hasPermission(config.get("fly.target-permission")))) {
+
+            player.sendActionBar(config.get("general.no-permission-message"));
+            soundLib.play(player, "general.no-permission-sound");
+            return true;
+
+        }
 
         if  (target == null) {
 

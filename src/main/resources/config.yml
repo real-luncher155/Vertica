@@ -12,6 +12,7 @@
 # Prefix: Here, you can use %prefix%. It will get replaced by the player's luckperms prefix.
 # Ping: Here, you can use %ping%. It will get replaced by the player's ping.
 # Tps: Here, you can use %tps%. It will get replaced by the server's tps.
+# Nick: Here, you can use %nick%. It will get replaced by the nick of a pre-defined player.
 
 
 # ----------------------------
@@ -20,14 +21,19 @@
 
 general:
   not-player: "[Vertica] You cannot use this command in the console!"
+
   no-permission-message: "&7[&c✘&7]&r You don't have permission to execute that command."
   no-permission-sound: "minecraft:entity.villager.no"
+
   too-many-arguments: "&7[&c✘&7]&r This command doesn't have this many arguments."
   too-many-arguments-sound: "minecraft:entity.villager.no"
+
   player-doesnt-exist: "&7[&c✘&7]&r This player doesn't exist."
   player-doesnt-exist-sound: "minecraft:entity.villager.no"
+
   no-arguments: "&7[&c✘&7]&r Please enter the required arguments."
   no-arguments-sound: "minecraft:entity.villager.no"
+
   disable-version-check: false
   disable-telemetry: false
 
@@ -47,8 +53,10 @@ heal:
   enable: true
 
   permission: "vertica.heal"
+
   success-player: "&7[&a✔&7]&r Successfully healed yourself."
   success-player-sound: "minecraft:entity.experience_orb.pickup"
+
   success-target: "&7[&a✔&7]&r You have been healed by &b%player%&r." # Player
   success-target-player: "&7[&a✔&7]&r Successfully healed &b%target%&r." # Target
   success-target-sound: "minecraft:entity.experience_orb.pickup"
@@ -61,8 +69,10 @@ feed:
   enable: true
 
   permission: "vertica.feed"
+
   success-player: "&7[&a✔&7]&r Successfully fed yourself."
   success-player-sound: "minecraft:entity.experience_orb.pickup"
+
   success-target: "&7[&a✔&7]&r You have been fed by &b%player%&r." # Player
   success-target-player: "&7[&a✔&7]&r Successfully fed &b%target%&r." # Target
   success-target-sound: "minecraft:entity.experience_orb.pickup"
@@ -74,12 +84,16 @@ feed:
 fly:
   enable: true
 
-  permission: "vertica.fly"
+  player-permission: "vertica.fly.player"
+  target-permission: "vertica.fly.target"
+
   enabled-player: "&7[&a✔&7]&r Successfully &aEnabled &rfly."
   enabled-player-sound: "minecraft:entity.experience_orb.pickup"
+
   enabled-target: "&7[&a✔&7]&r %player% &aEnabled&r fly for you." # Player
   enabled-target-player: "&7[&a✔&7]&r Successfully &aEnabled&r fly for &b%target%&r." # Target
   enabled-target-sound: "minecraft:entity.experience_orb.pickup"
+
   disabled-player: "&7[&a✔&7]&r Successfully &cDisabled &rfly."
   disabled-player-sound: "minecraft:entity.experience_orb.pickup"
   disabled-target: "&7[&a✔&7]&r %player% &cDisabled&r fly for you." # Player
@@ -230,7 +244,7 @@ tps:
 
   permission: "vertica.tps"
   setting: "&7[&bℹ&7]&r The server's TPS is %tps%" # Tps
-  setting-sound: "minecraft:entity.player.levelup"
+  setting-sound: "minecraft:entity.experience_orb.pickup"
 
 # ----------------------------
 
@@ -239,7 +253,7 @@ tps:
 rules:
   enable: true
 
-  sound: "minecraft:entity.player.levelup"
+  sound: "minecraft:entity.experience_orb.pickup"
   lines:
     - ""
     - "&8---------- &bRules &8----------"
@@ -255,7 +269,7 @@ rules:
 discord:
   enable: true
 
-  sound: "minecraft:entity.player.levelup"
+  sound: "minecraft:entity.experience_orb.pickup"
   lines:
     - ""
     - "&bJoin The Discord!"
@@ -264,5 +278,16 @@ discord:
 
 # ----------------------------
 
+nick:
+  player-permission: "vertica.nick.player"
+  target-permission: "vertica.nick.target"
 
+  player: "&7[&a✔&7]&r Your nick has been set to &e%nick%&r." # Nick
+  player-sound: "minecraft:entity.experience_orb.pickup"
+
+  player-target: "&7[&a✔&7]&r Successfully set %target%'s nick to &e%nick%&r." # Target, Nick
+  player-target-sound: "minecraft:entity.experience_orb.pickup"
+
+  target-player: "&7[&e⚠&7]&r Your nick has been set to '%nick%' by %player%." # Nick, Player
+  target-player-sound: "minecraft:entity.experience_orb.pickup"
 
