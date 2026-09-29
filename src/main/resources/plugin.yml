@@ -55,7 +55,7 @@ commands:
 
   ping:
     description: Shows the player their ping
-    usage: /ping
+    usage: /ping [<player>]
 
   tps:
     description: Shows the player the server TPS
@@ -68,3 +68,7 @@ commands:
   discord:
     description: Check out the server's Discord server!
     usage: /discord
+
+  nick:
+    description: Change your name on the server!
+    usage: /nick <text> [<player>]
