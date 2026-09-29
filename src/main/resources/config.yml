@@ -236,8 +236,12 @@ ping:
   enable: true
 
   permission: "vertica.ping"
+
   message: "&7[&bℹ&7]&r Your ping is &b%ping%" # Ping
   message-sound: "minecraft:entity.experience_orb.pickup"
+
+  message-target: "&7[&bℹ&7]&r %target%'s ping is &b%ping%" # Target, Ping
+  message-target-sound: "minecraft:entity.experience_orb.pickup"
 
 tps:
   enable: true

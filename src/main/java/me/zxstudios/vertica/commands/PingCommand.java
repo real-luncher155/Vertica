@@ -41,7 +41,16 @@ public class PingCommand implements CommandExecutor {
 
         }
 
-        if (args.length <= 1) {
+        if (args.length == 1) {
+
+            Player target = Bukkit.getPlayer(args[1]);
+
+            player.sendActionBar(config.get("ping.message-target").replaceAll("%target%", target.getName()).replaceAll("%ping%", String.valueOf(target.getPing())));
+            soundLib.play(player, "ping.message-target-sound");
+
+        }
+
+        if (args.length <= 2) {
 
             player.sendActionBar(config.get("general.too-many-arguments"));
             soundLib.play(player, "general.too-many-arguments-sound");
