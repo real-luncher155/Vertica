@@ -8,11 +8,12 @@
 # Tutorial:
 # Player: Here, you can use %player%. It will get replaced by the player's name.
 # Target: Here, you can use %target%. It will get replaced by the target player's name.
-# Message: Here, you can use %message%. It will get replaced by the player's chat message.
+# Message: Here, you can use %message%. It will get replaced by the command's message weather the player's or command's.
 # Prefix: Here, you can use %prefix%. It will get replaced by the player's luckperms prefix.
 # Ping: Here, you can use %ping%. It will get replaced by the player's ping.
 # Tps: Here, you can use %tps%. It will get replaced by the server's tps.
 # Nick: Here, you can use %nick%. It will get replaced by the nick of a pre-defined player.
+# []: Brackets mean that the placeholder is optional.
 
 
 # ----------------------------
@@ -280,7 +281,9 @@ discord:
     - "&7.gg/examplediscordlink123"
     - ""
 
-# ----------------------------
+# -----------------------------
+
+# /Nick command:
 
 nick:
 
@@ -298,3 +301,16 @@ nick:
   target-player: "&7[&e⚠&7]&r Your nick has been set to '%nick%' by %player%." # Nick, Player
   target-player-sound: "minecraft:entity.experience_orb.pickup"
 
+# -----------------------------
+
+announce:
+  enable: true
+
+  message: "&7[&a✔&7]&r Announcement send &asuccessfully&f."
+
+  lines: # Message, [Player]
+    - " -  &bAnnouncement!  &f- "
+    - "&b> &f%message% &b<"
+    - " -        -        - "
+
+  sound: "minecraft:entity.ender_dragon.growl"

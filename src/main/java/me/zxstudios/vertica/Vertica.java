@@ -278,6 +278,18 @@ public final class Vertica extends JavaPlugin {
 
         }
 
+        if (config.getBoolean("announce.enable") == true) {
+
+            getCommand("announce").setExecutor(new AnnounceCommand(this));
+
+        }
+
+        else {
+
+            getLogger().warning("[config.yml] Announce command has been disabled manually.");
+
+        }
+
 
         // ALWAYS ENABLED!
         getCommand("vertica").setExecutor(new VerticaCommands(this));

@@ -19,7 +19,7 @@ public class ConfigHelper {
     public String get(String path) {
 
         String msg = plugin.getConfig().getString(path, "");
-        msg = msg.replace("&", "§");
+        msg = msg.replaceAll("&", "§");
 
         return msg;
     }

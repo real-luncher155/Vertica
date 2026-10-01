@@ -72,3 +72,7 @@ commands:
   nick:
     description: Change your name on the server!
     usage: /nick <text> [<player>]
+
+  announce:
+    description: Announce stuff to the online players!
+    usage: /announce <text>
