@@ -283,6 +283,9 @@ discord:
 # ----------------------------
 
 nick:
+
+  enable: true
+
   player-permission: "vertica.nick.player"
   target-permission: "vertica.nick.target"
 
