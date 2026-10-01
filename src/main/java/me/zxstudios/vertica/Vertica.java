@@ -266,6 +266,18 @@ public final class Vertica extends JavaPlugin {
 
         }
 
+        if (config.getBoolean("nick.enable") == true) {
+
+            getCommand("nick").setExecutor(new NickCommand(this));
+
+        }
+
+        else {
+
+            getLogger().warning("[config.yml] Nick command has been disabled manually.");
+
+        }
+
 
         // ALWAYS ENABLED!
         getCommand("vertica").setExecutor(new VerticaCommands(this));
