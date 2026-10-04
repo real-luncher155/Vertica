@@ -20,7 +20,6 @@ public class ConfigHelper {
 
         String msg = plugin.getConfig().getString(path, "");
         msg = msg.replaceAll("&", "§");
-
         return msg;
     }
 
@@ -28,8 +27,7 @@ public class ConfigHelper {
     public String get(String path, Player player) {
 
         String msg = get(path);
-        msg = msg.replace("%player%", player.getName());
-        msg = msg.replace("%target%", player.getName());
+        msg = msg.replaceAll("%player%", player.getName());
 
         return msg;
     }
