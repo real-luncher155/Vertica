@@ -75,7 +75,7 @@ public class JoinEvent implements Listener {
 
                 for (String fjmessagesfinal : fjmessages) {
 
-                    String fjfinalmessage = fjmessagesfinal.replaceAll("%player%", player.getName());
+                    String fjfinalmessage = fjmessagesfinal.replaceAll("%player%", player.getName()).replaceAll("&", "§");
 
                     Bukkit.broadcastMessage(fjfinalmessage);
 

@@ -39,7 +39,7 @@ public class ConfigHelper {
     }
 
     public List<String> getStringList(String path) {
-        path = path.replace("&", "§");
+        path = path.replaceAll("&", "§");
         return configuration.getStringList(path);
     }
 
