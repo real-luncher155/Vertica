@@ -3,6 +3,7 @@ package me.zxstudios.vertica.commands;
 import me.zxstudios.vertica.Vertica;
 import me.zxstudios.vertica.libs.ConfigHelper;
 import me.zxstudios.vertica.libs.SoundLib;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -42,10 +43,9 @@ public class AnnounceCommand implements CommandExecutor {
         }
 
         List<String> lines = config.getStringList("announce.lines");
-        for (String line: lines) {
-
-            player.sendMessage(line.replaceAll("%message%", args[0].toString().replaceAll("&", "§")).replaceAll("%player%", player.getName()));
-
+        for (String line : lines) {
+            String message = line.replaceAll("%player%", player.getName()).replaceAll("%message%", String.join(" ", args));
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
         }
 
         player.sendActionBar(config.get("announce.message"));

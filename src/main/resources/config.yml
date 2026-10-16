@@ -309,7 +309,8 @@ announce:
   message: "&7[&a✔&7]&r Announcement send &asuccessfully&f."
 
   lines: # Message, [Player]
-    - " -  &bAnnouncement!  &f- "
+    - " -  &b&lAnnouncement!  &f- "
+    - "By: %player%"
     - "&b> &f%message% &b<"
     - " -        -        - "
 
