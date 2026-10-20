@@ -36,7 +36,7 @@ public class ChatEvent implements Listener {
                 Player player = event.getPlayer();
 
                 String chatFormatMsgTemp = config.get("chat-format");
-                chatFormatMsgTemp = chatFormatMsgTemp.replace("%player%", player.getName());
+                chatFormatMsgTemp = chatFormatMsgTemp.replace("%player%", player.getDisplayName().replaceAll("&", "§"));
                 chatFormatMsgTemp = chatFormatMsgTemp.replace("%message%", event.getMessage());
 
                 if (plugin.getServer().getPluginManager().getPlugin("LuckPerms") != null) {
@@ -52,10 +52,11 @@ public class ChatEvent implements Listener {
                     }
 
                     prefix = prefix.replace("&", "§");
-
                     chatFormatMsgTemp = chatFormatMsgTemp.replace("%prefix%", prefix);
 
-                } else {
+                }
+
+                else {
 
                     chatFormatMsgTemp = chatFormatMsgTemp.replace("%prefix%", "");
 

@@ -3,6 +3,7 @@ package me.zxstudios.vertica.commands;
 import me.zxstudios.vertica.Vertica;
 import me.zxstudios.vertica.libs.ConfigHelper;
 import me.zxstudios.vertica.libs.SoundLib;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -33,56 +34,51 @@ public class NickCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
+        if (args.length == 0) {
+            player.sendActionBar(config.get("general.no-arguments"));
+            soundLib.play(player, "general.no-arguments-sound");
+            return true;
+        }
+
         if (args.length == 1) {
-
-            if (!(player.hasPermission(config.get("nick.player-permission")))) {
-
+            if (!player.hasPermission(config.get("nick.player-permission"))) {
                 player.sendActionBar(config.get("general.no-permission-message"));
                 soundLib.play(player, "general.no-permission-sound");
                 return true;
-
             }
 
-            String finalNick = args[0].toString();
-            player.setDisplayName(finalNick);
+            String finalNick = args[0];
+            player.setDisplayName(finalNick.replaceAll("&", "§"));
+            player.playerListName(Component.text(finalNick.replaceAll("&", "§")));
 
-            player.sendActionBar(config.get("nick.player").replaceAll("%custom%", player.getDisplayName()));
+            player.sendActionBar(config.get("nick.player").replace("%nick%", finalNick));
             soundLib.play(player, "nick.player-sound");
-
+            return true;
         }
 
-        if (args.length == 2) {
-
-            if (!(player.hasPermission(config.get("nick.target-permission")))) {
-
-                player.sendActionBar(config.get("general.no-permission-message"));
-                soundLib.play(player, "general.no-permission-sound");
-                return true;
-
-            }
-
-            Player target = Bukkit.getPlayer(args[1]);
-
-            String finalNick = args[0].toString();
-            target.setDisplayName(finalNick);
-
-            player.sendActionBar(config.get("nick.player-target").replaceAll("%target%", target.getName()).replaceAll("%nick%", target.getDisplayName()));
-            target.sendActionBar(config.get("nick.target-player").replaceAll("%nick%", target.getDisplayName()).replaceAll("%player%", player.getName()));
-
-            soundLib.play(player, "nick.player-target-sound");
-            soundLib.play(player, "nick.target-player-sound");
-
+        if (!player.hasPermission(config.get("nick.target-permission"))) {
+            player.sendActionBar(config.get("general.no-permission-message"));
+            soundLib.play(player, "general.no-permission-sound");
+            return true;
         }
 
-        if (args.length <= 3) {
+        Player target = Bukkit.getPlayerExact(args[0]);
 
-            player.sendActionBar(config.get("general.too-many-arguments"));
-            soundLib.play(player, "general.too-many-arguments-sound");
-
+        if (target == null) {
+            player.sendActionBar(config.get("general.player-doesnt-exist"));
+            return true;
         }
 
-        player.sendActionBar(config.get("general.no-arguments"));
-        soundLib.play(player, "general.no-arguments-sound");
+        String finalNick = String.join(" ", java.util.Arrays.copyOfRange(args, 1, args.length));
+        target.setDisplayName(finalNick.replaceAll("&", "§"));
+        target.playerListName(Component.text(finalNick.replaceAll("&", "§")));
+
+        player.sendActionBar(config.get("nick.player-target").replace("%target%", target.getName()).replace("%nick%", finalNick));
+
+        target.sendActionBar(config.get("nick.target-player").replace("%nick%", finalNick).replace("%player%", player.getName()));
+
+        soundLib.play(player, "nick.player-target-sound");
+        soundLib.play(target, "nick.target-player-sound");
 
         return true;
     }
